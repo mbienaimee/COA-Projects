@@ -1,0 +1,143 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: 0;
+}
+
+
+html,
+body {
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.image-wrapper {
+    position: relative;
+    width: 293px;
+    height: 588px;
+    margin: 0 2px;
+    overflow: hidden;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)); */
+    transition: transform 0.5s ease;
+    /* z-index: 1; */
+    filter: brightness(80%);
+
+}
+.anchor{
+    display: none;
+}
+
+.img-zoomed-in {
+    transform: scale(1.1);
+    filter: blur(5px) grayscale(1) saturate(50%);
+    /* -webkit-filter: brightness(50%);
+    -moz-filter: brightness(50%);
+    -o-filter: brightness(50%);
+    -ms-filter: brightness(50%); */
+}
+
+.overlay {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    /* background-color: rgba(255, 255, 255, 0); */
+    /* background-color: #000000; */
+    /* opacity: 10%; */
+}
+
+.visible {
+    display: block;
+    background-color: #090909e6;
+    opacity: 50%;
+}
+
+/* .overlay2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #090909e6;
+    z-index: 2;
+    opacity: 50%;
+} */
+
+.words {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    /* background-color: azure; */
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    bottom: -50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 3;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.image-wrapper:hover .words {
+    opacity: 1;
+}
+
+.words,
+h1 {
+    color: white;
+    font-size: large;
+    font-weight: bolder;
+}
+
+.words,
+p {
+    color: gray;
+}
+
+.words,
+a {
+    color: cyan;
+}
+
+/* @media screen and (max-width: 700px) { */
+@media (width <= 700px) {
+
+    .words,
+    .overlay {
+        display: none;
+    }
+    .img-zoomed-in {
+        transform: scale(1);
+        filter: blur(0) grayscale(0) saturate(1) brightness(80%);
+    }
+
+    .visible {
+        display: none;
+    }
+}
